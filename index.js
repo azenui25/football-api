@@ -1,15 +1,24 @@
-const express = require('express')
-const bodyParser = require ('body-parser')
+const express = require('express');
+const bodyParser = require('body-parser')
 
-const teamRouter = require('./team/router')
+const app = express();
+const bodyParserMiddleWare = bodyParser.json()
+// eslint-disable-next-line no-undef
+const port = process.env.PORT || 4000;
 
-const app = express()
-const jsonParser = bodyParser.json()
-app.use(jsonParser)
-app.use(teamRouter)
+const teamRouter = require('./team/router');
+const playerRouter = require('./player/router')
 
+// If req.body is undefined
+// - use bodyparser
+// - make sure to app.use(bodyparser) before doing app.use(blablRouter)
+// - order matters here (wtf?) -> probably for a good reason 
 
+app
+  .use(bodyParserMiddleWare)
+  .use(playerRouter)
+  .use(teamRouter)
+  .listen(port, () => {
+    console.log(`App is listening on port ${port}`);
+  });
 
-
-const port = process.env.PORT || 4000
-app.listen(port, () => console.log(`server is listening on ${port}`))
