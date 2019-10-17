@@ -1,8 +1,10 @@
 const express = require('express')
-const db = require('./db')
+
+const router = require('./team/router')
 
 
 const app = express()
+app.use(router)
 
 
 
