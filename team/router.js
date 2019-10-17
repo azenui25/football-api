@@ -1,10 +1,10 @@
-const express = require ('express')
-const model = require ('./model')
+const { Router} = require ('express')
+const Team = require ('./model')
 
 
-const router = new router()
+const router = new Router()
 router.get('/team', (req, res, next) =>{
-    TextDecoderStream.findAll()
+    Team.findAll()
     .then(teams =>{ 
         res.send(teams)
     })

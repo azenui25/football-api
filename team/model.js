@@ -1,4 +1,4 @@
-const sequelize = require('sequelize')
+const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Team = db.define(
@@ -12,4 +12,4 @@ const Team = db.define(
     { tableName: 'football_teams' }
   )
 
-  module.exports = model 
+  module.exports = Team 

@@ -1,10 +1,13 @@
 const express = require('express')
+const bodyParser = require ('body-parser')
 
-const router = require('./team/router')
-
+const teamRouter = require('./team/router')
 
 const app = express()
-app.use(router)
+const jsonParser = bodyParser.json()
+app.use(jsonParser)
+app.use(teamRouter)
+
 
 
 
