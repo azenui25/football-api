@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const Player = require('./model');
 const Team = require('../team/model')
+const authMiddleware = require('../auth/middleware')
 
 const router = new Router();
 
@@ -63,3 +64,4 @@ router.put("/players/:playerId", (req, res, next) => {
     })
     .catch(next);
 });
+module.exports = router

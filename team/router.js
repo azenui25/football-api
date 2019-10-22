@@ -1,5 +1,7 @@
 const { Router} = require ('express')
 const Team = require ('./model')
+const Player = require('../player/model')
+const authMiddleware = require('../auth/middleware')
 
 
 const router = new Router()
